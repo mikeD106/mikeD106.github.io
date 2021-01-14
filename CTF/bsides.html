@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MikeD106.github.io</title>
+    <link rel="stylesheet" href="../css/bsides.css">
+</head>
+<body>
+
+    <div class="header">
+        <div class="topnav" id="myTopnav">
+            <a href="./index.html">Home</a>
+            
+            <div class="dropdown">
+                <button class="dropbtn">CTF Writeup
+                    <i></i>
+                </button>
+                    
+                <div class="dropdown-content" >
+                    <a href="">Hack The Box</a>
+                    <a href="">HACKLABS</a>
+                    <a href="">X-MAS2020</a>
+                    <a href="./bsides.html" class="active">BSides CTF</a>
+                    <a href="../CTFlist.html">More...</a>
+                </div>
+            </div>
+
+            <a href="../NotFound.html">Box Writeup</a>
+            <a href="../NotFound.html" >Blog</a>
+            <a href="./AbousUs.html">About Us</a>
+        </div>
+    </div>
+
+    <div style="color:white; padding-left: 25px;font-size: 22px;">
+        <h1 style="text-align:center"><b>BSidesBOS CTF</b></h1>
+        <img src="./Bsides/bsidesbos_est1.jpg" alt="" width="20%" style="margin-left: auto; margin-right:auto; display:block ">
+
+        <p>
+          <b>Challenge :</b> <br>
+            <b>Kiddie the Pool (Warmups)</b> <br>
+            <b>Read the Rules (Warmups)</b> <br>
+            <b>Baseball (Warmups)</b> <br>
+            <b>Give Up (Warmups)</b> <br>
+            <b>Saving The World (Steganography)</b> <br> 
+            <b>Secret Romance (Steganography)</b> <br><br>
+
+            <b>CTF Date : 26 Sept 2020 (09:00 AM EST – 05:00 PM EST)</b> <br>
+
+            <!-- Kiddie the Pool start -->
+            <h2><b>Kiddie the Pool (Warmups)</b></h2> <br>
+            <img src="./Bsides/Picture1.png" alt="" width="" style="margin-left: auto; margin-right:auto; display:block ">
+            from the given description of the challenge, I conclude that this challenge would involve with some kind of <b>effect</b> in graphic design.
+            And from the downloaded file, we could see a glimpse of the flag but we couldn't read it easily because of some kind of effect.
+
+            <img src="./Bsides/Picture2.png" alt="" width="50%" style="margin-left: auto; margin-right:auto; display:block ">
+            after search for the effect that was used on the photo, I got the similar effect named <b>Twirl</b>, 
+            lets reverse the image! and I reverse it by using <a class="link" href="https://photopea.com">Photopea</a> and after reverse it, we could see the flag clearly. <br>
+            <img src="./Bsides/Picture3.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+
+            <p style="text-align:center">
+                <b>flag{whirlpool_in_a_cinch}</b>
+            </p>
+            <!-- Kiddie the Pool end -->
+
+            <!-- Read the Rules start-->
+            <h2><b>Read the Rules (Warmups)</b></h2>
+            from the description, we have to read the <a class="link" href="https://bsidesbos.ctf.games/rules">rules</a> of this CTF, and when I tried to inspect element the page, there is the flag of this challenge.
+            <img src="./Bsides/Picture4.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+
+            <p style="text-align:center">
+                <b>flag{its_time_to_hack}</b>
+            </p>
+            <!-- Read the Rules end -->
+
+            <!-- Baseball start -->
+            <h2><b>Baseball (Warmups)</b></h2>
+            first thing i do is download the given file named Baseball, and check what inside the file using "cat" command
+            <img src="./Bsides/Picture5.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+
+            and I found suspicious string and tried to investigate it using most favorite tool for CTF player called Magic from CyberChef.
+            <img src="./Bsides/Picture6.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+            now I know the encryption used on the strings and for the next step is to decrypt it.
+
+            First I know that is base64 encode, and after a little bit struggle (because this is the second time I did CTF) I figure out the second
+            encryption, it is base32, and Voila! the flag is mine haha!
+            <img src="./Bsides/Picture7.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+            
+            <p style="text-align:center">
+                <b>flag{wow_you_hit_a_homerun_and_really_ran_the_bases_there}</b>
+            </p>
+            <!-- Baseball end -->
+
+            <!-- Give Up start -->
+            <h2><b>Give Up (Warmups)</b></h2>
+            after start the instace of this challenge, we tried to connect it by using "<b>nc challenge.ctf.games 30786</b>"
+            <img src="./Bsides/Picture8.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+
+            But we could not find anything interesting until we discussed with other team who solved this challenge, and we got the hint about "<b>Give Up</b>",
+            the Give Up means to exit the netcat connection by using "exit" command. and the flag is ours!
+            <img src="./Bsides/Picture9.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+            <img src="./Bsides/Picture10.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+            <p style="text-align:center">
+                <b>flag{sometimes_it_is_best_to_step_away}</b>
+            </p>
+            <!-- Give Up end -->
+
+            <!-- Saving the World start -->
+            from the given image, I notice strange number on the image and after further investigation I notice the number was A1Z26 encoding 
+            <img src="./Bsides/Picture12.jpg" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+            and when I decrypt it, I got another strange string
+            <img src="./Bsides/Picture13.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+            after struggle a little bit to figure out what kind of that string is, I found it was <b>Vigenere Cipher</b> and using this <a class="link" href="https://www.dcode.fr/vigenere-cipher ">web</a> I got another string (so many string :(),
+            <img src="./Bsides/Picture14.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+            <img src="./Bsides/Picture15.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+            From the decryption result, I got the password "twellicklosescto" and using tool called Steghide (Tool to extract a Stegano inside an image),
+            <img src="./Bsides/Picture16.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+            <p style="text-align:center">
+                <b>flag{take_care_of_whiterose}</b>
+            </p>
+            <!-- Saving the World end -->
+
+            <!-- Secret Romance start -->
+            after download the given zipped file, I got 1 text file and another zipped file called message.zip, so I check whats inside the text file
+            <img src="./Bsides/Picture17.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+            the hint was “Le Cirque des Rêves”, so I search it on Google and found it was a book from Erin Morgenstern called "Night Circus", and from Wikipeda I tried to search the keyword
+            but I got nothing until I search the synonym for "center" and I got word "Central" and "bonfire".
+            <img src="./Bsides/Picture18.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+            now its time to check if the password is bonfire or not
+            <img src="./Bsides/Picture19.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+            voila! it was open and there is another text file and one new image file, because the previous challenge use Steghide, this time I tried to use it too.
+            by using "erinmorgenstern" as a password I extracted the flag.txt.
+            <img src="./Bsides/Picture20.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+
+            <p style="text-align:center">
+                <b>flag{the_night_circus}</b>
+            </p>
+             <!--Secret Romance end  -->
+
+             thats it for this writeup, hope you guys enjoy read it, and thank you for read it too, see you later!
+        </p>
+
+    </div>
+
+    <div class="footer">
+        <div class="footer-container">
+            <div class="footer-subcontainer">
+                        
+                <div>
+                    <h4 class="copyright">Mors Samper Victorem</h4>
+                </div>
+    
+                <div class="social-media">
+                    <h4 class="social-header">Follow my Social Media! : </h4>
+                    <div class="twitter">
+                        <a href="https://twitter.com/Opacite101">
+                            <img src="../assets/twitter.png" alt="" height="35vh" width="30vw">
+                        </a>
+                    </div>
+                    <div class="insta">
+                        <a href="https://www.instagram.com/alexndrmichael/">
+                            <img src="../assets/instagram.png" alt="" height="35vh" width="30vw">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

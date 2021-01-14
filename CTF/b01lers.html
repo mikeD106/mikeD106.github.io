@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MikeD106.github.io</title>
+    <link rel="stylesheet" href="../css/b01lers.css">
+</head>
+<body>
+        
+    <div class="header">
+
+        <div class="topnav" id="myTopnav">
+            <a href="../index.html">Home</a>
+            
+            <div class="dropdown">
+                <button class="dropbtn">CTF Writeup
+                    <i></i>
+                </button>
+                    
+                <div class="dropdown-content" >
+                    <a href="">Hack The Box</a>
+                    <a href="">HACKLABS</a>
+                    <a href="">X-MAS2020</a>
+                    <a href="./b01lers.html" class="active"> B01lers</a>
+                    <a href="../CTFlist.html">More...</a>
+                </div>
+            </div>
+
+            <a href="../NotFound.html">Box Writeup</a>
+            <a href="../NotFound.html">Blog</a>
+            <a href="../AbousUs.html">About Us</a>
+        </div>
+
+    </div>
+
+    <div style="color: white; padding-left: 25px;font-size: 22px;">
+        <h1 style="text-align:center">B01lers CTF</h1>
+        <img src="../assets/CTF/b01lers.png" alt="" width="50%" style="margin-left: auto; margin-right:auto; display:block ">
+        
+        <p>
+           <b>Completed Challenge :</b><br>
+                <b> Granular Data (Misc.)</b><br>
+                <b> Zima Blue (Misc.)</b><br>
+                <b> Dream Stealing (Crypto)</b><br><br>
+                <b> Completed Challenge outside the time limit :</b><br>
+                <b>Echoes of Reality (Misc.)</b><br>
+               <b>Needle in a Haystack (Misc.)</b><br>
+               <b>Troll Hunt (Misc.)</b><br>
+
+        </p>
+
+        <p>
+        <!-- Granular Data start -->
+        <h2><b>Granular Data (Misc.)</b></h2><br>
+        We have to download the given photo to advance the challenge, so after we download the photo and open it we could see this
+       
+        <img src="./b01lers/Picture1.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+       
+        So after I see this, the first thing I do is check the metadata through exiftool and now we got the flag of this challenge
+       
+        <img src="./b01lers/Picture2.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+
+        <p style="text-align:center">
+            <b>flag{h4t3d_1n_th3_n4t10n_0MTBu}</b>
+        </p>
+
+        <img src="./b01lers/Picture3.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+        <br><br>
+
+        <!-- Zima Blue Start -->
+        <h2><b>Zima Blue (Misc.)</b></h2><br>
+        After we downloaded the file, we could see something weird in the photos
+        <img src="./b01lers/Picture4.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+        
+        We could see a galaxy but being covered with weird blue rectangle, I tried to use the stegsolver to see whats behind the blue rectangle
+        <img src="./b01lers/Picture5.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+        
+        <p style="text-align:center">
+            <b>flag{t3ll_by_th3_p1x3ls}</b>
+        </p>
+        <img src="./b01lers/Picture6.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+        <!-- Granular Data end -->
+        
+        <!-- Dream Stealing start -->
+        <h2><b>Dream Stealing (Misc.)</b></h2>
+        We could see from the downloaded file there is a cipher text,
+        <img src="./b01lers/Picture7.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+        After I discuss with my friend who knows a lot of Cryptography, he said the content of ciphertext.txt is Classic RSA, 
+        and then we using the python to code the decryption of the cipher.
+        <img src="./b01lers/Picture8.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+        then after we run the python, we got the flag of the challenge.
+
+        <p style="text-align:center">
+            <b>flag{4cce551ng_th3_subc0nsc10us}</b>
+        </p>
+        <!-- Dream Stealing End -->
+
+        <!-- Echoes of Reality start -->
+        <h2><b> Echoes of Reality (Misc.)</b></h2>
+        We only got a audio file, and when we play the audio we got some beeping sound, 
+        first I thought it was a beeping cipher but I don’t get the result, 
+        so I thought again about sound and I think we have to analyze the sound because I thought it was about the frequency called spectogram.
+        and by using audacity, I could retrieve the flag
+        <img src="./b01lers/Picture9.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+        <p style="text-align:center">
+            <b>flag{b3h1nd_tH3_l0ok1nG_gl4s5}</b>
+        </p>
+        <!-- Echoes of Reality end -->
+
+        <!-- Needle In A Haystack start-->
+        <h2><b>Needle In A Haystack (Misc.)</b></h2>
+        we need to download the file, and after that we have to extract the file then we got 400 text file with some random string each file as a hay. 
+        Its quite simple actually, we just need to run a command like this <b> “ls -l | grep -r “flag{“”</b>. and voila! we got the flag!
+        <img src="./b01lers/Picture10.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+        <p style="text-align:center">
+            <b>flag{y0u_f0unD_Th3_n33d1e!}</b>
+        </p>
+        <!-- Needle In A Haystack end -->
+
+        <!-- Troll Hunt start -->
+        <h2><b>Troll Hunt (Misc.)</b></h2>
+        From the description of the challenge, we know there is a popular hashtag <b>#shrive</b> and the first social media I went it <b>Twitter</b>, 
+        because the <b>hashtag</b>  popular on twitter.
+        <img src="./b01lers/Picture11.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+        And we got the twitter account, I know it because of <b>the date of tweets</b> almost as the starting time of CTF. After scrolling through his tweets, I got the link to imgur website
+        <img src="./b01lers/Picture12.png" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+        Then after open the link, I got the profile of V760DHM on imgur.com then after scrolling through that account I got the flag as shown below.
+        <img src="./b01lers/Picture13.jpg" alt="" style="margin-left: auto; margin-right:auto; display:block ">
+        
+        <p style="text-align:center">
+            <b>flag{shu7_up_4nd_d4nc3_G5jM30}</b>
+        </p>
+
+        thats it folks, although I didn't managed to solved anymore than that, but I learn a lot from this CTF, Cheers to the organizer of this CTF! <br>
+        thank you for reading this Writeup, cheers and bye!
+        </p>
+    </div>
+
+    <div class="footer">
+        <div class="footer-container">
+            <div class="footer-subcontainer">
+                        
+                <div>
+                    <h4 class="copyright">Mors Samper Victorem</h4>
+                </div>
+    
+                <div class="social-media">
+                    <h4 class="social-header">Follow my Social Media! : </h4>
+                    <div class="twitter">
+                        <a href="https://twitter.com/Opacite101">
+                            <img src="../assets/twitter.png" alt="" height="35vh" width="30vw">
+                        </a>
+                    </div>
+                    <div class="insta">
+                        <a href="https://www.instagram.com/alexndrmichael/">
+                            <img src="../assets/instagram.png" alt="" height="35vh" width="30vw">
+                        </a>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
